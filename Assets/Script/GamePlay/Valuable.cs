@@ -4,4 +4,5 @@ using UnityEngine;
 
 public class Valuable : MonoBehaviour
 {
+    public int pointAwarded;
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public int amountOfPoint;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +21,8 @@ public class Player : MonoBehaviour
     {
         if (col.gameObject.GetComponent<Valuable>() != null)
         {
-            Debug.Log("Here come the money");
+            Valuable val = col.gameObject.GetComponent<Valuable>();
+            amountOfPoint += val.pointAwarded;
             Destroy(col.gameObject);
         }
     }

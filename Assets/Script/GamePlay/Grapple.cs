@@ -22,7 +22,7 @@ public class Grapple : MonoBehaviour
 
     public void TriggerGrapple(Vector2 finalPosition)
     {
-        if (_forwardCoroutineRunning == false)
+        if (_forwardCoroutineRunning == false && _grabbedSomething == false)
         {
             _forwardGrab = StartCoroutine(GrappleForward(finalPosition));
         }
@@ -67,6 +67,7 @@ public class Grapple : MonoBehaviour
             elapsedTime += Time.deltaTime;
             yield return null;
         }
+        _grabbedSomething = false;
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -76,6 +77,7 @@ public class Grapple : MonoBehaviour
             StopCoroutine(_forwardGrab);
             _forwardCoroutineRunning = false;
             _startingPosition = transform.position;
+            _grabbedSomething = true;
             StartCoroutine(GrappleSurface());
         }
     }

@@ -6,8 +6,8 @@ public class PlayerControl : MonoBehaviour
 {
     public float grabRange = 1;
     public Grapple Grapple;
-    private Vector3 _lookedPosition = new Vector3();
-    private Vector3 _grabMaxPosition = new Vector3();
+    private Vector2 _lookedPosition = new Vector2();
+    private Vector2 _grabMaxPosition = new Vector2();
 
     void Start()
     {
@@ -24,7 +24,7 @@ public class PlayerControl : MonoBehaviour
     {
         _lookedPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         _grabMaxPosition = _lookedPosition;
-
+        //_grabMaxPosition = (_lookedPosition - (Vector2) transform.localPosition).normalized;
         if (Input.GetMouseButtonDown(0))
         {
             Grapple.TriggerGrapple(_grabMaxPosition);
