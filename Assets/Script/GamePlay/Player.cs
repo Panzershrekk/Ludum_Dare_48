@@ -5,7 +5,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public GameManager GameManager;
-
+    public PlayerControl PlayerControl;
+    
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.GetComponent<Valuable>() != null)
