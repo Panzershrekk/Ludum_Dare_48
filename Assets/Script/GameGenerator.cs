@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class GameGenerator : MonoBehaviour
 {
-    public List<GameObject> Valuable = new List<GameObject>();
-    public List<GameObject> Rock = new List<GameObject>();
+    public List<Element> Valuable = new List<Element>();
+    public List<Element> Rock = new List<Element>();
 
+    [Range(0.0f, 100.0f)]
+    public float RatioPower;
     public float ProbabilityForValuable = 25;
     public float ProbabilityForRock = 55;
-    public int CurrentDepthIndex;
-    public int CurrentWidthIndex;
-    public int MaxDepthIndex = 30;
-    public int MaxWidthIndex = 30;
-    public int DepthRatio = 1;
+    private float _currentDepthIndex;
+    private float _currentWidthIndex;
+    private float MaxDepthIndex = 30;
+    private int MaxWidthIndex = 30;
+    private float _depthRatio = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,34 +28,34 @@ public class GameGenerator : MonoBehaviour
         int x = 0;
         for (y = 0; y < MaxDepthIndex; y++)
         {
+            _depthRatio = (_currentDepthIndex / MaxDepthIndex);
             for (x = 0; x < MaxWidthIndex; x++)
             {
                 CreateElement();
-                CurrentWidthIndex += 1;
+                _currentWidthIndex += 1;
             }
             x = 0;
-            CurrentWidthIndex = 0;
-            CurrentDepthIndex += 1;
+            _currentWidthIndex = 0;
+            _currentDepthIndex += 1;
         }
     }
 
     public void CreateElement()
     {
-        float ValuableRand = Random.Range(0, 100 * 1f);
-        float RockRand = Random.Range(0, 100 / 1f);
-        float PositionVariationX = Random.RandomRange(0.0f, 1.0f);
-        float PositionVariationY = Random.RandomRange(0.0f, 1.0f);
-
+        float ValuableRand = Random.Range(0f, 100f - (RatioPower * _depthRatio));
+        float RockRand = Random.Range(0f, 100f + (RatioPower * _depthRatio));
+        float PositionVariationX = Random.Range(0.0f, 1.0f);
+        float PositionVariationY = Random.Range(0.0f, 1.0f);
         if (ValuableRand <= ProbabilityForValuable)
         {
-            Instantiate(Valuable[0],
-                        new Vector3(transform.position.x + CurrentWidthIndex + PositionVariationX, transform.position.y - CurrentDepthIndex - PositionVariationY),
+            Element ele = Instantiate(Valuable[0],
+                        new Vector3(transform.position.x + _currentWidthIndex + PositionVariationX, transform.position.y - _currentDepthIndex - PositionVariationY),
                         Quaternion.identity);
         }
         else if (RockRand <= ProbabilityForRock)
         {
-            Instantiate(Rock[0],
-            new Vector3(transform.position.x + CurrentWidthIndex + PositionVariationX, transform.position.y - CurrentDepthIndex - PositionVariationY),
+            Element ele = Instantiate(Rock[0],
+            new Vector3(transform.position.x + _currentWidthIndex + PositionVariationX, transform.position.y - _currentDepthIndex - PositionVariationY),
             Quaternion.identity);
         }
     }

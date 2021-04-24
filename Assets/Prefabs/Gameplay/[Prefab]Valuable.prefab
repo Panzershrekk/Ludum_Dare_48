@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 4476117710149910363}
   - component: {fileID: 4476117710149910364}
   - component: {fileID: 4476117710149910362}
+  - component: {fileID: -8353474964859708179}
   m_Layer: 0
-  m_Name: Gold
+  m_Name: '[Prefab]Valuable'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -136,3 +137,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointAwarded: 5
+--- !u!114 &-8353474964859708179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4476117710149910367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54164d9d7fd2e4c4d95d754628878a12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
