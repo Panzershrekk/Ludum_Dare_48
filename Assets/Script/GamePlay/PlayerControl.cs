@@ -28,7 +28,7 @@ public class PlayerControl : MonoBehaviour
         _grabMaxPosition = direction * grabRange;
         if (Input.GetMouseButtonDown(0))
         {
-            Grapple.TriggerGrapple(_grabMaxPosition);
+            Grapple.TriggerGrapple(_lookedPosition);
         }
     }
 

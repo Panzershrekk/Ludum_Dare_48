@@ -24,7 +24,7 @@ public class Grapple : MonoBehaviour
     {
         if (_forwardCoroutineRunning == false && _grabbedSomething == false)
         {
-            _forwardGrab = StartCoroutine(GrappleForward(Vector3.one * finalPosition));
+            _forwardGrab = StartCoroutine(GrappleForward(finalPosition));
         }
     }
 
