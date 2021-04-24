@@ -4,25 +4,14 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public int amountOfPoint;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public GameManager GameManager;
 
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.GetComponent<Valuable>() != null)
         {
             Valuable val = col.gameObject.GetComponent<Valuable>();
-            amountOfPoint += val.pointAwarded;
+            GameManager.AddScore(val.pointAwarded);
             Destroy(col.gameObject);
         }
     }
