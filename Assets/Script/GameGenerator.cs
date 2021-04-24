@@ -48,13 +48,13 @@ public class GameGenerator : MonoBehaviour
         float PositionVariationY = Random.Range(0.0f, 1.0f);
         if (ValuableRand <= ProbabilityForValuable)
         {
-            Element ele = Instantiate(Valuable[0],
+            Element ele = Instantiate(Valuable[Random.Range(0, Valuable.Count)],
                         new Vector3(transform.position.x + _currentWidthIndex + PositionVariationX, transform.position.y - _currentDepthIndex - PositionVariationY, 1),
-                        Quaternion.identity);
+                        Quaternion.Euler(new Vector3(0, 0, Random.Range(0, 360))));
         }
         else if (RockRand <= ProbabilityForRock)
         {
-            Element ele = Instantiate(Rock[0],
+            Element ele = Instantiate(Rock[Random.Range(0, Rock.Count - 1)],
             new Vector3(transform.position.x + _currentWidthIndex + PositionVariationX, transform.position.y - _currentDepthIndex - PositionVariationY, 1),
             Quaternion.identity);
         }

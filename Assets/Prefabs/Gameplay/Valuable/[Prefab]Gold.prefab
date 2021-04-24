@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 4476117710149910365}
   - component: {fileID: 4476117710149910366}
   - component: {fileID: 4476117710149910363}
-  - component: {fileID: 4476117710149910364}
   - component: {fileID: 4476117710149910362}
   - component: {fileID: -8353474964859708179}
+  - component: {fileID: 253611790887722968}
   m_Layer: 0
-  m_Name: '[Prefab]Valuable'
+  m_Name: '[Prefab]Gold'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,8 +29,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4476117710149910367}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.72, y: 0.73, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -75,9 +75,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: 4adeaf2d2b1c7417e89f026626d8264f,
-    type: 3}
-  m_Color: {r: 0.7735849, g: 0.63570434, b: 0.15690638, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 9380ae666fb549f40907e2ccac595620, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -108,22 +107,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &4476117710149910364
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4476117710149910367}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!114 &4476117710149910362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,3 +132,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54164d9d7fd2e4c4d95d754628878a12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CreationFinished: 0
+--- !u!60 &253611790887722968
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4476117710149910367}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.65, y: 0.63}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.114999995, y: 0.24499999}
+      - {x: -0.265, y: 0.095}
+      - {x: -0.265, y: -0.085}
+      - {x: -0.175, y: -0.24499999}
+      - {x: 0.225, y: -0.24499999}
+      - {x: 0.255, y: -0.195}
+      - {x: 0.255, y: 0.044999998}
+      - {x: 0.195, y: 0.24499999}

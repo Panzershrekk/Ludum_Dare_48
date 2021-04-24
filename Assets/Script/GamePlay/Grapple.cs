@@ -16,9 +16,14 @@ public class Grapple : MonoBehaviour
     private Coroutine _forwardGrab;
     private bool _forwardCoroutineRunning;
     private Vector2 _collidePoint;
+    private Vector2 _localOrigin;
+    private Vector2 _origin;
+    
     void Start()
     {
         _startingPosition = Player.transform.position;
+        _localOrigin = transform.localPosition;
+        _localOrigin = transform.position;
     }
 
     public void TriggerGrapple(Vector2 finalPosition)
@@ -71,6 +76,7 @@ public class Grapple : MonoBehaviour
             yield return null;
         }
         transform.SetParent(GrappleParent);
+        transform.localPosition = _localOrigin;
         _grabbedSomething = false;
         Player.PlayerControl.hasControl = true;
     }
