@@ -49,13 +49,13 @@ public class GameGenerator : MonoBehaviour
         if (ValuableRand <= ProbabilityForValuable)
         {
             Element ele = Instantiate(Valuable[0],
-                        new Vector3(transform.position.x + _currentWidthIndex + PositionVariationX, transform.position.y - _currentDepthIndex - PositionVariationY),
+                        new Vector3(transform.position.x + _currentWidthIndex + PositionVariationX, transform.position.y - _currentDepthIndex - PositionVariationY, 1),
                         Quaternion.identity);
         }
         else if (RockRand <= ProbabilityForRock)
         {
             Element ele = Instantiate(Rock[0],
-            new Vector3(transform.position.x + _currentWidthIndex + PositionVariationX, transform.position.y - _currentDepthIndex - PositionVariationY),
+            new Vector3(transform.position.x + _currentWidthIndex + PositionVariationX, transform.position.y - _currentDepthIndex - PositionVariationY, 1),
             Quaternion.identity);
         }
     }

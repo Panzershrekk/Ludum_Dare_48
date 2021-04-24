@@ -9,12 +9,13 @@ public class Grapple : MonoBehaviour
     public float TimeToGoBack;
 
     public float TimeToReachSurface;
+    public Transform GrappleParent;
     public Player Player;
     private bool _grabbedSomething = false;
     private Vector2 _startingPosition = new Vector2(0, 0);
     private Coroutine _forwardGrab;
     private bool _forwardCoroutineRunning;
-
+    private Vector2 _collidePoint;
     void Start()
     {
         _startingPosition = Player.transform.position;
@@ -58,26 +59,34 @@ public class Grapple : MonoBehaviour
 
     IEnumerator GrappleSurface()
     {
+        Player.PlayerControl.hasControl = false;
+        transform.SetParent(null);
         Vector3 currentPosition = Player.transform.position;
         float elapsedTime = 0;
 
         while (elapsedTime < TimeToReachSurface)
         {
-            Player.transform.position = Vector3.Lerp(currentPosition, transform.position, (elapsedTime / TimeToReach));
+            Player.transform.localPosition = Vector3.Lerp(currentPosition, transform.localPosition, (elapsedTime / TimeToReach));
             elapsedTime += Time.deltaTime;
             yield return null;
         }
+        transform.SetParent(GrappleParent);
         _grabbedSomething = false;
+        Player.PlayerControl.hasControl = true;
     }
 
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.GetComponent<SolidStructure>() != null)
         {
-            StopCoroutine(_forwardGrab);
+            if (_forwardGrab != null)
+            {
+                StopCoroutine(_forwardGrab);
+            }
             _forwardCoroutineRunning = false;
             _startingPosition = transform.position;
             _grabbedSomething = true;
+            _collidePoint = col.ClosestPoint(Player.transform.position);
             StartCoroutine(GrappleSurface());
         }
     }
