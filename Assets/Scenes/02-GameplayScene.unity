@@ -614,6 +614,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Valuable:
   - {fileID: -8353474964859708179, guid: 174df4f34c3648245b938dd67256ed0d, type: 3}
+  - {fileID: -8353474964859708179, guid: ee1b8f94ebcfce04a91f745e34488938, type: 3}
+  - {fileID: -8353474964859708179, guid: eb3e2e8619e3bce44901a377a7ad48ae, type: 3}
+  - {fileID: -8353474964859708179, guid: d2aa10b92eb560a48978d4845d56387b, type: 3}
   Rock:
   - {fileID: -5773317580827299445, guid: 7aa6ef900cf61ea478a9a6322a4c4256, type: 3}
   RatioPower: 79.8
