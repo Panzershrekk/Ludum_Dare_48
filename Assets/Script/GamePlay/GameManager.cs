@@ -47,6 +47,11 @@ public class GameManager : MonoBehaviour
     {
         GameStarted = true;
         Player.PlayerControl.hasControl = true;
+        //TODO Check to change this
+        foreach (Element ele in FindObjectsOfType<Element>())
+        {
+            ele.CreationFinished = true;
+        }
     }
 
     private void HandleGameEnd()

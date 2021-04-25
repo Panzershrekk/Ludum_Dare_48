@@ -8,6 +8,7 @@ public class GameUIManager : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI scoreTextEngame;
 
+    public Animator scoreTextAnimator;
     public void UpdateTimer(string value)
     {
         timerText.text = value;
@@ -15,6 +16,7 @@ public class GameUIManager : MonoBehaviour
 
     public void UpdateScore(string value)
     {
+        scoreTextAnimator.SetTrigger("Shake");
         scoreText.text = value;
         scoreTextEngame.text = value;
     }

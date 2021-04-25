@@ -7,7 +7,7 @@ public class Grapple : MonoBehaviour
     public float TimeToReach;
 
     public float TimeToGoBack;
-
+    public AudioSource GrabAudio;
     public float TimeToReachSurface;
     public Transform GrappleParent;
     public Player Player;
@@ -71,6 +71,7 @@ public class Grapple : MonoBehaviour
 
     IEnumerator GrappleSurface()
     {
+        GrabAudio.Play();
         Vector3 currentPosition = Player.transform.position;
         float elapsedTime = 0;
 
