@@ -19,10 +19,11 @@ public class Grapple : MonoBehaviour
     private Vector2 _localOrigin;
     private Vector2 _origin;
     private bool _grabStarted;
+    private SolidStructure _currentGrabbedSolidStructure = null;
     void Start()
     {
         _startingPosition = Player.transform.position;
-        _localOrigin = transform.localPosition;        
+        _localOrigin = transform.localPosition;
         _origin = transform.position;
     }
 
@@ -42,7 +43,7 @@ public class Grapple : MonoBehaviour
         _grabStarted = true;
         while (elapsedTime < TimeToReach)
         {
-            transform.position = Vector3.Lerp(_origin, finalPosition, (elapsedTime / TimeToReach));
+            transform.position = Vector3.Lerp(_startingPosition, finalPosition, (elapsedTime / TimeToReach));
             elapsedTime += Time.deltaTime;
             yield return null;
         }
@@ -57,7 +58,7 @@ public class Grapple : MonoBehaviour
 
         while (elapsedTime < TimeToGoBack)
         {
-            transform.localPosition = Vector3.Lerp(currentPosition, _localOrigin, (elapsedTime / TimeToReach));
+            transform.localPosition = Vector3.Lerp(currentPosition, _startingPosition, (elapsedTime / TimeToReach));
             elapsedTime += Time.deltaTime;
             yield return null;
         }
@@ -89,16 +90,26 @@ public class Grapple : MonoBehaviour
         {
             if (col.gameObject.GetComponent<SolidStructure>() != null)
             {
-                if (_forwardGrab != null)
+                SolidStructure tmpStruct = col.gameObject.GetComponent<SolidStructure>();
+                if (tmpStruct != _currentGrabbedSolidStructure)
                 {
-                    StopCoroutine(_forwardGrab);
+                    _currentGrabbedSolidStructure = tmpStruct;
+                    if (_forwardGrab != null)
+                    {
+                        StopCoroutine(_forwardGrab);
+                    }
+                    _forwardCoroutineRunning = false;
+                    _startingPosition = transform.position;
+                    _grabbedSomething = true;
+                    _collidePoint = col.ClosestPoint(Player.transform.position);
+                    StartCoroutine(GrappleSurface());
                 }
-                _forwardCoroutineRunning = false;
-                _startingPosition = transform.position;
-                _grabbedSomething = true;
-                _collidePoint = col.ClosestPoint(Player.transform.position);
-                StartCoroutine(GrappleSurface());
             }
         }
+    }
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawLine(transform.localPosition, transform.forward);
     }
 }

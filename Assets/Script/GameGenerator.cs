@@ -13,8 +13,8 @@ public class GameGenerator : MonoBehaviour
     public float ProbabilityForRock = 55;
     private float _currentDepthIndex;
     private float _currentWidthIndex;
-    private float MaxDepthIndex = 30;
-    private int MaxWidthIndex = 30;
+    public float MaxDepthIndex = 30;
+    public int MaxWidthIndex = 30;
     private float _depthRatio = 1;
     // Start is called before the first frame update
     void Start()
@@ -54,9 +54,9 @@ public class GameGenerator : MonoBehaviour
         }
         else if (RockRand <= ProbabilityForRock)
         {
-            Element ele = Instantiate(Rock[Random.Range(0, Rock.Count - 1)],
+            Element ele = Instantiate(Rock[Random.Range(0, Rock.Count)],
             new Vector3(transform.position.x + _currentWidthIndex + PositionVariationX, transform.position.y - _currentDepthIndex - PositionVariationY, 1),
-            Quaternion.identity);
+            Quaternion.Euler(new Vector3(0, 0, Random.Range(0, 360))));
         }
     }
 }

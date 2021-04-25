@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartGame();
+        //StartGame();
     }
 
     // Update is called once per frame
@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
         GameUIManager.UpdateScore(PlayerScore.ToString());
     }
 
-    private void StartGame()
+    public void StartGame()
     {
         _gameStarted = true;
         Player.PlayerControl.hasControl = true;
