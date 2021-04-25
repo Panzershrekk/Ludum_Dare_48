@@ -9,8 +9,9 @@ public class GameManager : MonoBehaviour
     public GameObject EndGameUI;
     public AudioSource AudioSource;
     public float PlayerScore;
+    public bool GameStarted = false;
+
     public float timeRemaining = 60;
-    private bool _gameStarted = false;
     private bool _gameFinished = false;
 
     // Start is called before the first frame update
@@ -22,7 +23,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_gameFinished == false && _gameStarted == true)
+        if (_gameFinished == false && GameStarted == true)
         {
             if (timeRemaining > 0)
             {
@@ -44,7 +45,7 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        _gameStarted = true;
+        GameStarted = true;
         Player.PlayerControl.hasControl = true;
     }
 

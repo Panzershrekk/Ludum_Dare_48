@@ -6,6 +6,7 @@ public class GameUIManager : MonoBehaviour
 {
     public TextMeshProUGUI timerText;
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI scoreTextEngame;
 
     public void UpdateTimer(string value)
     {
@@ -15,5 +16,6 @@ public class GameUIManager : MonoBehaviour
     public void UpdateScore(string value)
     {
         scoreText.text = value;
+        scoreTextEngame.text = value;
     }
 }

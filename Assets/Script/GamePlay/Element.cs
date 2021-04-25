@@ -15,5 +15,9 @@ public class Element : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+        if (col.GetComponent<Spawn>() != null)
+        {
+            Destroy(gameObject);
+        }
     }
 }
