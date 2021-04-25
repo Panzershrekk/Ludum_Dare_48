@@ -9,14 +9,14 @@ public class LevelLoader : MonoBehaviour
 
     // Update is called once per frame
 
-    public void OnStartClick()
+    public void OnStartClick(int index)
     {
-        StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex +1));
+        StartCoroutine(LoadLevel(index));
     }
 
     IEnumerator LoadLevel(int levelIndex)
     {
-        transition.SetTrigger("Start");
+        transition.SetTrigger("Out");
         yield return new WaitForSeconds(transitionTime);
         SceneManager.LoadScene(levelIndex);
     }

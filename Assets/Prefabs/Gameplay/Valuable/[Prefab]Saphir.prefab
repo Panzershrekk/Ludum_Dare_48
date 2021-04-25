@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4476117710149910362}
   - component: {fileID: -8353474964859708179}
   - component: {fileID: 6034874462410795298}
+  - component: {fileID: 1718336879601674087}
   m_Layer: 0
   m_Name: '[Prefab]Saphir'
   m_TagString: Untagged
@@ -120,6 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointAwarded: 10
+  animator: {fileID: 1718336879601674087}
 --- !u!114 &-8353474964859708179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,3 +168,22 @@ PolygonCollider2D:
       - {x: 0.345, y: -0.07}
       - {x: 0.345, y: 0.089999996}
       - {x: 0.085, y: 0.35999998}
+--- !u!95 &1718336879601674087
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4476117710149910367}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e71fe7b425e925841bb482a68b37341b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

@@ -13,7 +13,8 @@ public class Player : MonoBehaviour
         {
             Valuable val = col.gameObject.GetComponent<Valuable>();
             GameManager.AddScore(val.pointAwarded);
-            Destroy(col.gameObject);
+            val.PlayLootAnimation();
+            //Destroy(col.gameObject);
         }
     }
 }

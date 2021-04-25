@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4476117710149910362}
   - component: {fileID: -8353474964859708179}
   - component: {fileID: 253611790887722968}
+  - component: {fileID: 1921996889873349584}
   m_Layer: 0
   m_Name: '[Prefab]Gold'
   m_TagString: Untagged
@@ -120,6 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointAwarded: 5
+  animator: {fileID: 1921996889873349584}
 --- !u!114 &-8353474964859708179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,3 +168,22 @@ PolygonCollider2D:
       - {x: 0.255, y: -0.195}
       - {x: 0.255, y: 0.044999998}
       - {x: 0.195, y: 0.24499999}
+--- !u!95 &1921996889873349584
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4476117710149910367}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e71fe7b425e925841bb482a68b37341b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

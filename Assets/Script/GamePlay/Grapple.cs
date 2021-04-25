@@ -37,10 +37,12 @@ public class Grapple : MonoBehaviour
 
     IEnumerator GrappleForward(Vector2 finalPosition)
     {
+        transform.SetParent(null);
         Player.PlayerControl.hasControl = false;
         _forwardCoroutineRunning = true;
         float elapsedTime = 0;
         _grabStarted = true;
+        _startingPosition = transform.position;
         while (elapsedTime < TimeToReach)
         {
             transform.position = Vector3.Lerp(_startingPosition, finalPosition, (elapsedTime / TimeToReach));
@@ -62,18 +64,18 @@ public class Grapple : MonoBehaviour
             elapsedTime += Time.deltaTime;
             yield return null;
         }
+        transform.SetParent(GrappleParent);
         Player.PlayerControl.hasControl = true;
     }
 
     IEnumerator GrappleSurface()
     {
-        transform.SetParent(null);
         Vector3 currentPosition = Player.transform.position;
         float elapsedTime = 0;
 
         while (elapsedTime < TimeToReachSurface)
         {
-            Player.transform.localPosition = Vector3.Lerp(currentPosition, transform.localPosition, (elapsedTime / TimeToReach));
+            Player.transform.position = Vector3.Lerp(currentPosition, transform.position, (elapsedTime / TimeToReach));
             elapsedTime += Time.deltaTime;
             yield return null;
         }
