@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameGenerator : MonoBehaviour
 {
     public List<Element> Valuable = new List<Element>();
+    public List<float> ValuableProbability = new List<float>();
     public List<Element> Rock = new List<Element>();
 
     [Range(0.0f, 100.0f)]
@@ -48,7 +49,7 @@ public class GameGenerator : MonoBehaviour
         float PositionVariationY = Random.Range(0.0f, 1.0f);
         if (ValuableRand <= ProbabilityForValuable)
         {
-            Element ele = Instantiate(Valuable[Random.Range(0, Valuable.Count)],
+            Element ele = Instantiate(ValuableWithProbability(),
                         new Vector3(transform.position.x + _currentWidthIndex + PositionVariationX, transform.position.y - _currentDepthIndex - PositionVariationY, 1),
                         Quaternion.Euler(new Vector3(0, 0, Random.Range(0, 360))));
         }
@@ -58,5 +59,26 @@ public class GameGenerator : MonoBehaviour
             new Vector3(transform.position.x + _currentWidthIndex + PositionVariationX, transform.position.y - _currentDepthIndex - PositionVariationY, 1),
             Quaternion.Euler(new Vector3(0, 0, Random.Range(0, 360))));
         }
+    }
+
+    public Element ValuableWithProbability()
+    {
+        int index = 0;
+        float Rand = Random.Range(0f, 100f);
+        Element element = null;
+        foreach (float prob in ValuableProbability)
+        {
+            if (Rand > prob)
+            {
+                element = Valuable[index];
+                break;
+            }
+            else
+            {
+                index++;
+            }
+        }
+        //element = Valuable[Random.Range(0, Valuable.Count)];
+        return element;
     }
 }

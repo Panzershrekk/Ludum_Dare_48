@@ -55,6 +55,7 @@ public class Grapple : MonoBehaviour
 
     IEnumerator GrappleBackward()
     {
+        _grabStarted = false;
         Vector3 currentPosition = transform.localPosition;
         float elapsedTime = 0;
 
@@ -108,10 +109,5 @@ public class Grapple : MonoBehaviour
                 }
             }
         }
-    }
-    void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.green;
-        Gizmos.DrawLine(transform.localPosition, transform.forward);
     }
 }
