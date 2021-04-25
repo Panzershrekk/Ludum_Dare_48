@@ -20,7 +20,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: a5f7929f41d14ff40ac393e1c1216192, type: 2}
+  m_Motion: {fileID: 7400000, guid: aee2902354d275f429aa7be47c8ac2fd, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -54,7 +54,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Circle
+  m_Name: EmeraldCircle
   serializedVersion: 5
   m_AnimatorParameters: []
   m_AnimatorLayers:
